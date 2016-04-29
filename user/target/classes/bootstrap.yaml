@@ -1,0 +1,13 @@
+server:
+  port: 8901
+
+spring:
+  cloud:
+    config:
+      uri: ${CONFIG_SERVER_URL:http://localhost:8888}
+  application:
+    name: user
+eureka:
+  instance:
+    metadataMap:
+      instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
